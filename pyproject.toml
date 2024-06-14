@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "rt-amp-alayze"
+version = "0.1.0"
+description = ""
+authors = ["Reznik Vladislav <reznik.vs@iapran.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+plotly = "^5.22.0"
+scipy = "^1.13.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
