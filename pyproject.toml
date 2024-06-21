@@ -9,8 +9,22 @@ readme = "README.md"
 python = "^3.12"
 plotly = "^5.22.0"
 scipy = "^1.13.1"
+pandas = "^2.2.2"
+dash = "^2.17.1"
+dash-bootstrap-components = "^1.6.0"
+gunicorn = "^22.0.0"
 
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.4.2"
+isort = "^5.13.2"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+
+[tool.black]
+line-length = 120
