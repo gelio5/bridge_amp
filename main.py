@@ -55,5 +55,5 @@ def main():
     prepare_exp_data(cycles_exp_7, top_mean_values_exp_7, bottom_mean_values_exp_7, "exp_7")
 
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
