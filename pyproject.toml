@@ -6,7 +6,7 @@ authors = ["Reznik Vladislav <reznik.vs@iapran.ru>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.11"
 plotly = "^5.22.0"
 scipy = "^1.13.1"
 pandas = "^2.2.2"
