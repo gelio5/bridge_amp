@@ -18,8 +18,8 @@ def prepare_exp_data(cycles, top_values, bottom_values, exp_name):
     df['top_mean_values_interpolated'] = df['top_mean_values'].replace(0, np.nan)
     df['bottom_mean_values_interpolated'] = df['bottom_mean_values'].replace(0, np.nan)
 
-    df['top_mean_values_interpolated'] = df['top_mean_values_interpolated'].interpolate(method="spline")
-    df['bottom_mean_values_interpolated'] = df['bottom_mean_values_interpolated'].interpolate(method="spline")
+    df['top_mean_values_interpolated'] = df['top_mean_values_interpolated'].interpolate(method="slinear")
+    df['bottom_mean_values_interpolated'] = df['bottom_mean_values_interpolated'].interpolate(method="slinear")
 
     df['top_interpolated_gradient'] = df["top_mean_values_interpolated"].diff() / df["cycles"].diff()
     df['bottom_interpolated_gradient'] = df["bottom_mean_values_interpolated"].diff() / df["cycles"].diff()
@@ -72,5 +72,22 @@ def extract_data_from_directory(directory):
         else:
             result = {"top": 0, "bottom": 0}
         all_data.append(result)
+
+    return all_data
+
+
+def parse_rt_data_from_directory(directory, chanel):
+    all_data = []
+    channels = {"a": 4, "c": 6, "g": 8, "t": 10}
+    path_to_data = os.path.join(directory, "rt.rt")
+    with open(path_to_data, "r") as file:
+        lines = file.readlines()
+
+    for i in range(0, len(lines), 2):
+        point = {
+            "top": int(lines[i].split(";")[channels[chanel]]),
+            "bottom": int(lines[i + 1].split(";")[channels[chanel]])
+        }
+        all_data.append(point)
 
     return all_data
