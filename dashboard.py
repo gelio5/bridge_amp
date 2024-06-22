@@ -12,8 +12,9 @@ df_exp_4 = pd.read_csv("exp_4.csv")
 df_exp_5 = pd.read_csv("exp_5.csv")
 df_exp_6 = pd.read_csv("exp_6.csv")
 df_exp_7 = pd.read_csv("exp_7.csv")
+df_exp_8 = pd.read_csv("exp_8.csv")
 
-df = pd.concat([df_exp_1, df_exp_2, df_exp_3, df_exp_4, df_exp_5, df_exp_6, df_exp_7], ignore_index=True)
+df = pd.concat([df_exp_1, df_exp_2, df_exp_3, df_exp_4, df_exp_5, df_exp_6, df_exp_7, df_exp_8], ignore_index=True)
 
 app.layout = dbc.Container([
     html.H1('Мостиковая амплификация в реальном времени', className="text-primary text-center fs-3"),
@@ -50,6 +51,10 @@ app.layout = dbc.Container([
                  'y': df[df['experiment'] == 'exp_7']['top_mean_values'], 'type': 'line', 'name': 'exp_7_top'},
                 {'x': df[df['experiment'] == 'exp_7']['cycles'],
                  'y': df[df['experiment'] == 'exp_7']['bottom_mean_values'], 'type': 'line', 'name': 'exp_7_bottom'},
+{'x': df[df['experiment'] == 'exp_8']['cycles'],
+                 'y': df[df['experiment'] == 'exp_8']['top_mean_values'], 'type': 'line', 'name': 'exp_8_top'},
+                {'x': df[df['experiment'] == 'exp_8']['cycles'],
+                 'y': df[df['experiment'] == 'exp_8']['bottom_mean_values'], 'type': 'line', 'name': 'exp_8_bottom'},
             ],
             'layout': {
                 'title': 'Raw Mean Values vs Cycles',
@@ -140,6 +145,10 @@ app.layout = dbc.Container([
                  'y': df[df['experiment'] == 'exp_7']['top_gradient'], 'type': 'line', 'name': 'exp_7_top'},
                 {'x': df[df['experiment'] == 'exp_7']['cycles'],
                  'y': df[df['experiment'] == 'exp_7']['bottom_gradient'], 'type': 'line', 'name': 'exp_7_bottom'},
+                {'x': df[df['experiment'] == 'exp_8']['cycles'],
+                 'y': df[df['experiment'] == 'exp_8']['top_gradient'], 'type': 'line', 'name': 'exp_8_top'},
+                {'x': df[df['experiment'] == 'exp_8']['cycles'],
+                 'y': df[df['experiment'] == 'exp_8']['bottom_gradient'], 'type': 'line', 'name': 'exp_8_bottom'},
             ],
             'layout': {
                 'title': 'Mean Values Gragient vs Cycles',
