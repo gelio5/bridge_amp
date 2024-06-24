@@ -3,9 +3,13 @@ import re
 
 import pandas as pd
 import numpy as np
+from scipy.optimize import curve_fit
+
+from aproximation_models import ApproximationModels
 
 
 def prepare_exp_data(cycles, top_values, bottom_values, exp_name):
+    model = ApproximationModels.hyperbolic_type_2
     df = pd.DataFrame({
         'cycles': cycles,
         'top_mean_values': top_values,
@@ -15,14 +19,16 @@ def prepare_exp_data(cycles, top_values, bottom_values, exp_name):
     df["top_gradient"] = df["top_mean_values"].diff() / df["cycles"].diff()
     df["bottom_gradient"] = df["bottom_mean_values"].diff() / df["cycles"].diff()
 
-    df['top_mean_values_interpolated'] = df['top_mean_values'].replace(0, np.nan)
-    df['bottom_mean_values_interpolated'] = df['bottom_mean_values'].replace(0, np.nan)
+    popt, _ = curve_fit(model, df["cycles"], df["top_mean_values"])
+    b0, b1 = popt
+    df["top_mean_values_approximated"] = model(df["cycles"], b0, b1)
 
-    df['top_mean_values_interpolated'] = df['top_mean_values_interpolated'].interpolate(method="slinear")
-    df['bottom_mean_values_interpolated'] = df['bottom_mean_values_interpolated'].interpolate(method="slinear")
+    popt, _ = curve_fit(model, df["cycles"], df["bottom_mean_values"])
+    b0, b1 = popt
+    df["bottom_mean_values_approximated"] = model(df["cycles"], b0, b1)
 
-    df['top_interpolated_gradient'] = df["top_mean_values_interpolated"].diff() / df["cycles"].diff()
-    df['bottom_interpolated_gradient'] = df["bottom_mean_values_interpolated"].diff() / df["cycles"].diff()
+    df['top_approximated_gradient'] = df["top_mean_values_approximated"].diff() / df["cycles"].diff()
+    df['bottom_approximated_gradient'] = df["bottom_mean_values_approximated"].diff() / df["cycles"].diff()
 
     df.to_csv(f"{exp_name}.csv", index=False)
 
