@@ -60,6 +60,34 @@ def main():
     bottom_mean_values_exp_8 = np.array([i["bottom"] for i in exp_8_data])
     prepare_exp_data(cycles_exp_8, top_mean_values_exp_8, bottom_mean_values_exp_8, "exp_8")
 
+    exp_9_data_directory = "./realtime_amplification_exp_09"
+    exp_9_data = parse_rt_data_from_directory(exp_9_data_directory, "g")
+    cycles_exp_9 = np.array([i + 1 for i in range(len(exp_9_data))])
+    top_mean_values_exp_9 = np.array([i["top"] for i in exp_9_data])
+    bottom_mean_values_exp_9 = np.array([i["bottom"] for i in exp_9_data])
+    prepare_exp_data(cycles_exp_9, top_mean_values_exp_9, bottom_mean_values_exp_9, "exp_9")
+
+    exp_11_data_directory = "./realtime_amplification_exp_11"
+    exp_11_data = parse_rt_data_from_directory(exp_11_data_directory, "g")
+    cycles_exp_11 = np.array([i + 1 for i in range(len(exp_11_data))])
+    top_mean_values_exp_11 = np.array([i["top"] for i in exp_11_data])
+    bottom_mean_values_exp_11 = np.array([i["bottom"] for i in exp_11_data])
+    prepare_exp_data(cycles_exp_11, top_mean_values_exp_11, bottom_mean_values_exp_11, "exp_11")
+
+    exp_12_data_directory = "./realtime_amplification_exp_12"
+    exp_12_data = parse_rt_data_from_directory(exp_12_data_directory, "g")
+    cycles_exp_12 = np.array([i + 1 for i in range(len(exp_12_data))])
+    top_mean_values_exp_12 = np.array([i["top"] for i in exp_12_data])
+    bottom_mean_values_exp_12 = np.array([i["bottom"] for i in exp_12_data])
+    prepare_exp_data(cycles_exp_12, top_mean_values_exp_12, bottom_mean_values_exp_12, "exp_12")
+
+    exp_13_data_directory = "./realtime_amplification_exp_13"
+    exp_13_data = parse_rt_data_from_directory(exp_13_data_directory, "g")
+    cycles_exp_13 = np.array([i + 1 for i in range(len(exp_13_data))])
+    top_mean_values_exp_13 = np.array([i["top"] for i in exp_13_data])
+    bottom_mean_values_exp_13 = np.array([i["bottom"] for i in exp_13_data])
+    prepare_exp_data(cycles_exp_13, top_mean_values_exp_13, bottom_mean_values_exp_13, "exp_13")
+
 
 if __name__ == "__main__":
     main()

@@ -9,26 +9,21 @@ from aproximation_models import ApproximationModels
 
 
 def prepare_exp_data(cycles, top_values, bottom_values, exp_name):
-    model = ApproximationModels.hyperbolic_type_2
-    df = pd.DataFrame({
-        'cycles': cycles,
-        'top_mean_values': top_values,
-        'bottom_mean_values': bottom_values,
-        'experiment': exp_name
-    })
+    model = ApproximationModels.polynomial_4
+    df = pd.DataFrame(
+        {"cycles": cycles, "top_mean_values": top_values, "bottom_mean_values": bottom_values, "experiment": exp_name}
+    )
     df["top_gradient"] = df["top_mean_values"].diff() / df["cycles"].diff()
     df["bottom_gradient"] = df["bottom_mean_values"].diff() / df["cycles"].diff()
 
     popt, _ = curve_fit(model, df["cycles"], df["top_mean_values"])
-    b0, b1 = popt
-    df["top_mean_values_approximated"] = model(df["cycles"], b0, b1)
+    df["top_mean_values_approximated"] = model(df["cycles"], *popt)
 
     popt, _ = curve_fit(model, df["cycles"], df["bottom_mean_values"])
-    b0, b1 = popt
-    df["bottom_mean_values_approximated"] = model(df["cycles"], b0, b1)
+    df["bottom_mean_values_approximated"] = model(df["cycles"], *popt)
 
-    df['top_approximated_gradient'] = df["top_mean_values_approximated"].diff() / df["cycles"].diff()
-    df['bottom_approximated_gradient'] = df["bottom_mean_values_approximated"].diff() / df["cycles"].diff()
+    df["top_approximated_gradient"] = df["top_mean_values_approximated"].diff() / df["cycles"].diff()
+    df["bottom_approximated_gradient"] = df["bottom_mean_values_approximated"].diff() / df["cycles"].diff()
 
     df.to_csv(f"{exp_name}.csv", index=False)
 
@@ -92,7 +87,7 @@ def parse_rt_data_from_directory(directory, chanel):
     for i in range(0, len(lines), 2):
         point = {
             "top": int(lines[i].split(";")[channels[chanel]]),
-            "bottom": int(lines[i + 1].split(";")[channels[chanel]])
+            "bottom": int(lines[i + 1].split(";")[channels[chanel]]),
         }
         all_data.append(point)
 

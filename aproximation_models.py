@@ -10,20 +10,20 @@ class ApproximationModels:
 
     @staticmethod
     def quadratic(x, b_0, b_1, b_2):
-        return b_0 + b_1 * x + b_2 * (x ** 2)
+        return b_0 + b_1 * x + b_2 * (x**2)
 
     @staticmethod
     def cubic(x, b_0, b_1, b_2, b_3):
-        return b_0 + b_1 * x + b_2 * (x ** 2) + b_3 * (x ** 3)
+        return b_0 + b_1 * x + b_2 * (x**2) + b_3 * (x**3)
 
     @staticmethod
     def polynomial_4(x, b0, b1, b2, b3, b4):
-        return b4 * x ** 4 + b3 * x ** 3 + b2 * x ** 2 + b1 * x + b0
+        return b4 * x**4 + b3 * x**3 + b2 * x**2 + b1 * x + b0
 
     @staticmethod
     def power(X, b0, b1):
         """Степенная: Y = b0 * X^b1"""
-        return b0 * X ** b1
+        return b0 * X**b1
 
     @staticmethod
     def exponential_type_1(X, b0, b1):
@@ -33,7 +33,7 @@ class ApproximationModels:
     @staticmethod
     def exponential_type_2(X, b0, b1):
         """Экспоненциальная II типа: Y = b0 * b1^X"""
-        return b0 * b1 ** X
+        return b0 * b1**X
 
     @staticmethod
     def logarithmic(X, b0, b1):
@@ -73,7 +73,7 @@ class ApproximationModels:
     @staticmethod
     def gompertz_curve(X, b0, b1, b2):
         """Кривая Гомперца: Y = b0 * b1^(b2^X)"""
-        return b0 * b1 ** (b2 ** X)
+        return b0 * b1 ** (b2**X)
 
     @staticmethod
     def modified_exponential_type_1(X, b0, b1, b2):
@@ -83,7 +83,7 @@ class ApproximationModels:
     @staticmethod
     def modified_exponential_type_2(X, b0, b1, b2):
         """Модифицированная экспонента II типа: Y = b0 + b1 * b2^X"""
-        return b0 + b1 * b2 ** X
+        return b0 + b1 * b2**X
 
     @staticmethod
     def generalized_logistic_curve_type_1(X, b0, b1, b2, b3):

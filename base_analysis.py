@@ -8,7 +8,7 @@ from utils import extract_data_from_directory
 
 
 def polynomial_model(x, a, b, c, d, e):
-    return a * x ** 4 + b * x ** 3 + c * x ** 2 + d * x + e
+    return a * x**4 + b * x**3 + c * x**2 + d * x + e
 
 
 def process_data(base_x_data, base_y_data, name, fig):
@@ -46,12 +46,14 @@ def main():
     top_mean_values_exp_1 = np.array([15, 17, 23, 253, 0, 358, 410, 461, 491, 523, 583, 616, 655, 685, 731, 775])
     bottom_mean_values_exp_1 = np.array([15, 17, 23, 255, 0, 358, 412, 463, 501, 540, 604, 642, 689, 730, 791, 848])
 
-    df_exp_1_raw = pd.DataFrame({
-        'cycles': cycles_exp_1,
-        'top_mean_values': top_mean_values_exp_1,
-        'bottom_mean_values': bottom_mean_values_exp_1,
-        'experiment': 'exp_1'
-    })
+    df_exp_1_raw = pd.DataFrame(
+        {
+            "cycles": cycles_exp_1,
+            "top_mean_values": top_mean_values_exp_1,
+            "bottom_mean_values": bottom_mean_values_exp_1,
+            "experiment": "exp_1",
+        }
+    )
     df_exp_1_raw.to_csv("exp_1_raw.csv", index=False)
     cycles_exp_2 = np.array([5, 10, 15] + [i + 16 for i in range(30)])
     top_mean_values_exp_2 = np.array(
@@ -251,7 +253,7 @@ def main():
         xaxis_title="Цикл амплификации",
         yaxis_title="99 процентиль яркости",
         legend_tracegroupgap=160,
-        hovermode="x unified"
+        hovermode="x unified",
     )
 
     fig.show()
