@@ -88,6 +88,34 @@ def main():
     bottom_mean_values_exp_13 = np.array([i["bottom"] for i in exp_13_data])
     prepare_exp_data(cycles_exp_13, top_mean_values_exp_13, bottom_mean_values_exp_13, "exp_13")
 
+    exp_14_data_directory = "./realtime_amplification_exp_14"
+    exp_14_data = parse_rt_data_from_directory(exp_14_data_directory, "g")
+    cycles_exp_14 = np.array([i + 1 for i in range(len(exp_14_data))])
+    top_mean_values_exp_14 = np.array([i["top"] for i in exp_14_data])
+    bottom_mean_values_exp_14 = np.array([i["bottom"] for i in exp_14_data])
+    prepare_exp_data(cycles_exp_14, top_mean_values_exp_14, bottom_mean_values_exp_14, "exp_14")
+
+    exp_15_data_directory = "./realtime_amplification_exp_15"
+    exp_15_data = parse_rt_data_from_directory(exp_15_data_directory, "g")
+    cycles_exp_15 = np.array([i + 1 for i in range(len(exp_15_data))])
+    top_mean_values_exp_15 = np.array([i["top"] for i in exp_15_data])
+    bottom_mean_values_exp_15 = np.array([i["bottom"] for i in exp_15_data])
+    prepare_exp_data(cycles_exp_15, top_mean_values_exp_15, bottom_mean_values_exp_15, "exp_15")
+
+    exp_16_data_directory = "./realtime_amplification_exp_16"
+    exp_16_data = parse_rt_data_from_directory(exp_16_data_directory, "g")
+    cycles_exp_16 = np.array([i + 1 for i in range(len(exp_16_data))])
+    top_mean_values_exp_16 = np.array([i["top"] for i in exp_16_data])
+    bottom_mean_values_exp_16 = np.array([i["bottom"] for i in exp_16_data])
+    prepare_exp_data(cycles_exp_16, top_mean_values_exp_16, bottom_mean_values_exp_16, "exp_16")
+
+    exp_17_data_directory = "./realtime_amplification_exp_17"
+    exp_17_data = parse_rt_data_from_directory(exp_17_data_directory, "g")
+    cycles_exp_17 = np.array([i + 1 for i in range(len(exp_17_data))])
+    top_mean_values_exp_17 = np.array([i["top"] for i in exp_17_data])
+    bottom_mean_values_exp_17 = np.array([i["bottom"] for i in exp_17_data])
+    prepare_exp_data(cycles_exp_17, top_mean_values_exp_17, bottom_mean_values_exp_17, "exp_17")
+
 
 if __name__ == "__main__":
     main()

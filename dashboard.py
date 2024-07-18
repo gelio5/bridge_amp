@@ -17,6 +17,10 @@ df_exp_9 = pd.read_csv("exp_9.csv")
 df_exp_11 = pd.read_csv("exp_11.csv")
 df_exp_12 = pd.read_csv("exp_12.csv")
 df_exp_13 = pd.read_csv("exp_13.csv")
+df_exp_14 = pd.read_csv("exp_14.csv")
+df_exp_15 = pd.read_csv("exp_15.csv")
+df_exp_16 = pd.read_csv("exp_16.csv")
+df_exp_17 = pd.read_csv("exp_17.csv")
 
 df = pd.concat(
     [
@@ -32,6 +36,10 @@ df = pd.concat(
         df_exp_11,
         df_exp_12,
         df_exp_13,
+        df_exp_14,
+        df_exp_15,
+        df_exp_16,
+        df_exp_17,
     ],
     ignore_index=True,
 )
@@ -91,10 +99,11 @@ app.layout = dbc.Container(
                         "type": "line",
                         "name": "exp_6_bottom",
                     },
-                    # {'x': df[df['experiment'] == 'exp_7']['cycles'],
-                    #  'y': df[df['experiment'] == 'exp_7']['top_mean_values'], 'type': 'line', 'name': 'exp_7_top'},
-                    # {'x': df[df['experiment'] == 'exp_7']['cycles'],
-                    #  'y': df[df['experiment'] == 'exp_7']['bottom_mean_values'], 'type': 'line', 'name': 'exp_7_bottom'},
+                    {'x': df[df['experiment'] == 'exp_7']['cycles'],
+                     'y': df[df['experiment'] == 'exp_7']['top_mean_values'], 'type': 'line', 'name': 'exp_7_top'},
+                    {'x': df[df['experiment'] == 'exp_7']['cycles'],
+                     'y': df[df['experiment'] == 'exp_7']['bottom_mean_values'], 'type': 'line',
+                     'name': 'exp_7_bottom'},
                     {
                         "x": df[df["experiment"] == "exp_8"]["cycles"],
                         "y": df[df["experiment"] == "exp_8"]["top_mean_values"],
@@ -154,6 +163,56 @@ app.layout = dbc.Container(
                         "y": df[df["experiment"] == "exp_13"]["bottom_mean_values"],
                         "type": "line",
                         "name": "exp_13_bottom",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_14"]["cycles"],
+                        "y": df[df["experiment"] == "exp_14"]["top_mean_values"],
+                        "type": "line",
+                        "name": "exp_14_top",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_14"]["cycles"],
+                        "y": df[df["experiment"] == "exp_14"]["bottom_mean_values"],
+                        "type": "line",
+                        "name": "exp_14_bottom",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_15"]["cycles"],
+                        "y": df[df["experiment"] == "exp_15"]["top_mean_values"],
+                        "type": "line",
+                        "name": "exp_15_top",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_15"]["cycles"],
+                        "y": df[df["experiment"] == "exp_15"]["bottom_mean_values"],
+                        "type": "line",
+                        "name": "exp_15_bottom",
+                    },
+
+                    {
+                        "x": df[df["experiment"] == "exp_16"]["cycles"],
+                        "y": df[df["experiment"] == "exp_16"]["top_mean_values"],
+                        "type": "line",
+                        "name": "exp_16_top",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_16"]["cycles"],
+                        "y": df[df["experiment"] == "exp_16"]["bottom_mean_values"],
+                        "type": "line",
+                        "name": "exp_16_bottom",
+                    },
+
+                    {
+                        "x": df[df["experiment"] == "exp_17"]["cycles"],
+                        "y": df[df["experiment"] == "exp_17"]["top_mean_values"],
+                        "type": "line",
+                        "name": "exp_17_top",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_17"]["cycles"],
+                        "y": df[df["experiment"] == "exp_17"]["bottom_mean_values"],
+                        "type": "line",
+                        "name": "exp_17_bottom",
                     },
                 ],
                 "layout": {
@@ -222,12 +281,12 @@ app.layout = dbc.Container(
                         "type": "line",
                         "name": "exp_6_bottom",
                     },
-                    # {'x': df[df['experiment'] == 'exp_7']['cycles'],
-                    #  'y': df[df['experiment'] == 'exp_7']['top_mean_values_approximated'], 'type': 'line',
-                    #  'name': 'exp_7_top'},
-                    # {'x': df[df['experiment'] == 'exp_7']['cycles'],
-                    #  'y': df[df['experiment'] == 'exp_7']['bottom_mean_values_approximated'], 'type': 'line',
-                    #  'name': 'exp_7_bottom'},
+                    {'x': df[df['experiment'] == 'exp_7']['cycles'],
+                     'y': df[df['experiment'] == 'exp_7']['top_mean_values_approximated'], 'type': 'line',
+                     'name': 'exp_7_top'},
+                    {'x': df[df['experiment'] == 'exp_7']['cycles'],
+                     'y': df[df['experiment'] == 'exp_7']['bottom_mean_values_approximated'], 'type': 'line',
+                     'name': 'exp_7_bottom'},
                     {
                         "x": df[df["experiment"] == "exp_8"]["cycles"],
                         "y": df[df["experiment"] == "exp_8"]["top_mean_values_approximated"],
@@ -287,6 +346,54 @@ app.layout = dbc.Container(
                         "y": df[df["experiment"] == "exp_13"]["bottom_mean_values_approximated"],
                         "type": "line",
                         "name": "exp_13_bottom",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_14"]["cycles"],
+                        "y": df[df["experiment"] == "exp_14"]["top_mean_values_approximated"],
+                        "type": "line",
+                        "name": "exp_14_top",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_14"]["cycles"],
+                        "y": df[df["experiment"] == "exp_14"]["bottom_mean_values_approximated"],
+                        "type": "line",
+                        "name": "exp_14_bottom",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_15"]["cycles"],
+                        "y": df[df["experiment"] == "exp_15"]["top_mean_values_approximated"],
+                        "type": "line",
+                        "name": "exp_15_top",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_15"]["cycles"],
+                        "y": df[df["experiment"] == "exp_15"]["bottom_mean_values_approximated"],
+                        "type": "line",
+                        "name": "exp_15_bottom",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_16"]["cycles"],
+                        "y": df[df["experiment"] == "exp_16"]["top_mean_values_approximated"],
+                        "type": "line",
+                        "name": "exp_16_top",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_16"]["cycles"],
+                        "y": df[df["experiment"] == "exp_16"]["bottom_mean_values_approximated"],
+                        "type": "line",
+                        "name": "exp_16_bottom",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_17"]["cycles"],
+                        "y": df[df["experiment"] == "exp_17"]["top_mean_values_approximated"],
+                        "type": "line",
+                        "name": "exp_17_top",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_17"]["cycles"],
+                        "y": df[df["experiment"] == "exp_17"]["bottom_mean_values_approximated"],
+                        "type": "line",
+                        "name": "exp_17_bottom",
                     },
                 ],
                 "layout": {
@@ -349,10 +456,10 @@ app.layout = dbc.Container(
                         "type": "line",
                         "name": "exp_6_bottom",
                     },
-                    # {'x': df[df['experiment'] == 'exp_7']['cycles'],
-                    #  'y': df[df['experiment'] == 'exp_7']['top_gradient'], 'type': 'line', 'name': 'exp_7_top'},
-                    # {'x': df[df['experiment'] == 'exp_7']['cycles'],
-                    #  'y': df[df['experiment'] == 'exp_7']['bottom_gradient'], 'type': 'line', 'name': 'exp_7_bottom'},
+                    {'x': df[df['experiment'] == 'exp_7']['cycles'],
+                     'y': df[df['experiment'] == 'exp_7']['top_gradient'], 'type': 'line', 'name': 'exp_7_top'},
+                    {'x': df[df['experiment'] == 'exp_7']['cycles'],
+                     'y': df[df['experiment'] == 'exp_7']['bottom_gradient'], 'type': 'line', 'name': 'exp_7_bottom'},
                     {
                         "x": df[df["experiment"] == "exp_8"]["cycles"],
                         "y": df[df["experiment"] == "exp_8"]["top_gradient"],
@@ -412,6 +519,55 @@ app.layout = dbc.Container(
                         "y": df[df["experiment"] == "exp_13"]["bottom_gradient"],
                         "type": "line",
                         "name": "exp_13_bottom",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_14"]["cycles"],
+                        "y": df[df["experiment"] == "exp_14"]["top_gradient"],
+                        "type": "line",
+                        "name": "exp_14_top",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_14"]["cycles"],
+                        "y": df[df["experiment"] == "exp_14"]["bottom_gradient"],
+                        "type": "line",
+                        "name": "exp_14_bottom",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_15"]["cycles"],
+                        "y": df[df["experiment"] == "exp_15"]["top_gradient"],
+                        "type": "line",
+                        "name": "exp_15_top",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_15"]["cycles"],
+                        "y": df[df["experiment"] == "exp_15"]["bottom_gradient"],
+                        "type": "line",
+                        "name": "exp_15_bottom",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_16"]["cycles"],
+                        "y": df[df["experiment"] == "exp_16"]["top_gradient"],
+                        "type": "line",
+                        "name": "exp_16_top",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_16"]["cycles"],
+                        "y": df[df["experiment"] == "exp_16"]["bottom_gradient"],
+                        "type": "line",
+                        "name": "exp_16_bottom",
+                    },
+
+                    {
+                        "x": df[df["experiment"] == "exp_17"]["cycles"],
+                        "y": df[df["experiment"] == "exp_17"]["top_gradient"],
+                        "type": "line",
+                        "name": "exp_17_top",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_17"]["cycles"],
+                        "y": df[df["experiment"] == "exp_17"]["bottom_gradient"],
+                        "type": "line",
+                        "name": "exp_17_bottom",
                     },
                 ],
                 "layout": {
@@ -480,12 +636,12 @@ app.layout = dbc.Container(
                         "type": "line",
                         "name": "exp_6_bottom",
                     },
-                    # {'x': df[df['experiment'] == 'exp_7']['cycles'],
-                    #  'y': df[df['experiment'] == 'exp_7']['top_approximated_gradient'], 'type': 'line',
-                    #  'name': 'exp_7_top'},
-                    # {'x': df[df['experiment'] == 'exp_7']['cycles'],
-                    #  'y': df[df['experiment'] == 'exp_7']['bottom_approximated_gradient'], 'type': 'line',
-                    #  'name': 'exp_7_bottom'},
+                    {'x': df[df['experiment'] == 'exp_7']['cycles'],
+                     'y': df[df['experiment'] == 'exp_7']['top_approximated_gradient'], 'type': 'line',
+                     'name': 'exp_7_top'},
+                    {'x': df[df['experiment'] == 'exp_7']['cycles'],
+                     'y': df[df['experiment'] == 'exp_7']['bottom_approximated_gradient'], 'type': 'line',
+                     'name': 'exp_7_bottom'},
                     {
                         "x": df[df["experiment"] == "exp_8"]["cycles"],
                         "y": df[df["experiment"] == "exp_8"]["top_approximated_gradient"],
@@ -545,6 +701,56 @@ app.layout = dbc.Container(
                         "y": df[df["experiment"] == "exp_13"]["bottom_approximated_gradient"],
                         "type": "line",
                         "name": "exp_13_bottom",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_14"]["cycles"],
+                        "y": df[df["experiment"] == "exp_14"]["top_approximated_gradient"],
+                        "type": "line",
+                        "name": "exp_14_top",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_14"]["cycles"],
+                        "y": df[df["experiment"] == "exp_14"]["bottom_approximated_gradient"],
+                        "type": "line",
+                        "name": "exp_14_bottom",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_15"]["cycles"],
+                        "y": df[df["experiment"] == "exp_15"]["top_approximated_gradient"],
+                        "type": "line",
+                        "name": "exp_15_top",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_15"]["cycles"],
+                        "y": df[df["experiment"] == "exp_15"]["bottom_approximated_gradient"],
+                        "type": "line",
+                        "name": "exp_15_bottom",
+                    },
+
+                    {
+                        "x": df[df["experiment"] == "exp_16"]["cycles"],
+                        "y": df[df["experiment"] == "exp_16"]["top_approximated_gradient"],
+                        "type": "line",
+                        "name": "exp_16_top",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_16"]["cycles"],
+                        "y": df[df["experiment"] == "exp_16"]["bottom_approximated_gradient"],
+                        "type": "line",
+                        "name": "exp_16_bottom",
+                    },
+
+                    {
+                        "x": df[df["experiment"] == "exp_17"]["cycles"],
+                        "y": df[df["experiment"] == "exp_17"]["top_approximated_gradient"],
+                        "type": "line",
+                        "name": "exp_17_top",
+                    },
+                    {
+                        "x": df[df["experiment"] == "exp_17"]["cycles"],
+                        "y": df[df["experiment"] == "exp_17"]["bottom_approximated_gradient"],
+                        "type": "line",
+                        "name": "exp_17_bottom",
                     },
                 ],
                 "layout": {
