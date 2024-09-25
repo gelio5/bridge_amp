@@ -116,6 +116,27 @@ def main():
     bottom_mean_values_exp_17 = np.array([i["bottom"] for i in exp_17_data])
     prepare_exp_data(cycles_exp_17, top_mean_values_exp_17, bottom_mean_values_exp_17, "exp_17")
 
+    exp_18_data_directory = "./realtime_amplification_exp_18"
+    exp_18_data = parse_rt_data_from_directory(exp_18_data_directory, "g")
+    cycles_exp_18 = np.array([i + 1 for i in range(len(exp_18_data))])
+    top_mean_values_exp_18 = np.array([i["top"] for i in exp_18_data])
+    bottom_mean_values_exp_18 = np.array([i["bottom"] for i in exp_18_data])
+    prepare_exp_data(cycles_exp_18, top_mean_values_exp_18, bottom_mean_values_exp_18, "exp_18")
+
+    exp_19_data_directory = "./realtime_amplification_exp_19"
+    exp_19_data = parse_rt_data_from_directory(exp_19_data_directory, "g")
+    cycles_exp_19 = np.array([i + 1 for i in range(len(exp_19_data))])
+    top_mean_values_exp_19 = np.array([i["top"] for i in exp_19_data])
+    bottom_mean_values_exp_19 = np.array([i["bottom"] for i in exp_19_data])
+    prepare_exp_data(cycles_exp_19, top_mean_values_exp_19, bottom_mean_values_exp_19, "exp_19")
+
+    exp_20_data_directory = "./realtime_amplification_exp_20"
+    exp_20_data = parse_rt_data_from_directory(exp_20_data_directory, "g")
+    cycles_exp_20 = np.array([i + 1 for i in range(len(exp_20_data))])
+    top_mean_values_exp_20 = np.array([i["top"] for i in exp_20_data])
+    bottom_mean_values_exp_20 = np.array([i["bottom"] for i in exp_20_data])
+    prepare_exp_data(cycles_exp_20, top_mean_values_exp_20, bottom_mean_values_exp_20, "exp_20")
+
 
 if __name__ == "__main__":
     main()
